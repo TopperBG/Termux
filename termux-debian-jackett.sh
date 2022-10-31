@@ -2,7 +2,8 @@
 pkg update
 pkg upgrade -y
 pkg install proot-distro wget 
-apt autoremove
+pkg clean
+pkg autoclean
 ver=$( curl -s -H 'Pragma: no-cache' "https://api.github.com/repos/Jackett/Jackett/releases/latest" | awk -F '"' '/tag_name/{print $4}' | tr -d '[:cntrl:]' )
 echo ">>> Latest Jackett version $ver"
 
