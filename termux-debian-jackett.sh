@@ -8,12 +8,15 @@ ver=$( curl -s -H 'Pragma: no-cache' "https://api.github.com/repos/Jackett/Jacke
 echo ">>> Latest Jackett version $ver"
 
 case $( uname -m | tr '[:upper:]' '[:lower:]') in
-	"x86_64" ) 
-		targetos=LinuxAMD;;
-	"aarch64" )
-		targetos=LinuxARM64;;
-    "aarch32"|"armv7*" ) 
-		targetos=LinuxARM32;;
+	x86_64 ) 
+		targetos=LinuxAMD
+		;;
+	aarch64 )
+		targetos=LinuxARM64
+		;;
+    aarch32 | armv7* ) 
+		targetos=LinuxARM32
+		;;
 	* )
 		echo "Unsupported OS, exiting..."
 		exit 1
